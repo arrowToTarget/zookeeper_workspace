@@ -2,6 +2,7 @@ package com.lewis.zookeeper.operation;
 
 import com.lewis.zookeeper.StaticProperty;
 import com.lewis.zookeeper.ZKUtils;
+import com.lewis.zookeeper.watcher.Constants;
 import org.apache.zookeeper.AsyncCallback;
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
@@ -95,7 +96,7 @@ public class ZkOperation {
 
 
     public static void main(String[] args) throws InterruptedException, KeeperException {
-        final ZkOperation zkOperation = new ZkOperation(StaticProperty.connectString,StaticProperty.timeout);
+        final ZkOperation zkOperation = new ZkOperation(Constants.HOST_POST_VM_2181,StaticProperty.timeout);
         //确保ZK客户端连上ZK服务器之后，再进行下面的操作
         ZKUtils.confirmConnected(zk);
         final String path ="/acl/node4";
